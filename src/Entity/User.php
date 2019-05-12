@@ -40,12 +40,36 @@ class User implements UserInterface
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $passwordChanged = null;
+
     /**
      * @var null|string Link to Personal Website
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $homepage = "";
 
+    /**
+     * @var null|string Link to LinkedIn Website
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $linkedIn = "";
+
+    /**
+     * @return string|null
+     */
+    public function getLinkedIn(): ?string
+    {
+        return $this->linkedIn;
+    }
+
+    /**
+     * @param string|null $linkedIn
+     */
+    public function setLinkedIn(?string $linkedIn): self
+    {
+        $this->linkedIn = $linkedIn;
+
+        return $this;
+    }
 
     public function getId(): ?int
     {
@@ -99,8 +123,13 @@ class User implements UserInterface
         return ''; // We store passwords hashed, it is impossible to regenerate back
     }
     /** Virtual method for EasyAdminBundle */
-    public function setPlainPassword(string $password): self
+    public function setPlainPassword($password): self
     {
+
+        if (!$password) {
+            return $this; // For usability: Empty password means do not change password
+        }
+
         $hash = password_hash($password, PASSWORD_ARGON2I);
         return $this->setPassword($hash);
     }
