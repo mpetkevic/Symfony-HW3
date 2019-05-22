@@ -1,1 +1,1 @@
-C:37:"PHPUnit\Runner\DefaultTestResultCache":44:{a:2:{s:7:"defects";a:0:{}s:5:"times";a:0:{}}}
+C:37:"PHPUnit\Runner\DefaultTestResultCache":367:{a:2:{s:7:"defects";a:2:{s:51:"App\Tests\Service\MoneyFormatterTest::testFormatEur";i:4;s:51:"App\Tests\Service\MoneyFormatterTest::testFormatUsd";i:4;}s:5:"times";a:3:{s:55:"App\Tests\Service\NumberFormatterTest::testFormatNumber";d:0;s:51:"App\Tests\Service\MoneyFormatterTest::testFormatEur";d:0.053;s:51:"App\Tests\Service\MoneyFormatterTest::testFormatUsd";d:0;}}}
